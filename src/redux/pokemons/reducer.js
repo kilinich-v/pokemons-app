@@ -1,19 +1,19 @@
 import { createReducer, combineReducers } from '@reduxjs/toolkit';
 import {
+  getListRequest,
   getListSuccess,
   getListError,
+  getItemRequest,
   getItemSuccess,
   getItemError
 } from './actions';
 
-const initialState = {};
-
-const pokemonsList = createReducer(initialState, {
-  [getListSuccess]: (state, { payload }) => [...state, payload.pokemonsList]
+const pokemons = createReducer([], {
+  [getListSuccess]: (_, { payload }) => payload
 });
 
-const pokemonsItem = createReducer(initialState, {
-  [getItemSuccess]: (_, { payload }) => payload.pokemonsItem
+const pokemon = createReducer(null, {
+  [getItemSuccess]: (_, { payload }) => payload
 });
 
 const error = createReducer(null, {
@@ -28,13 +28,15 @@ const error = createReducer(null, {
 });
 
 const isLoading = createReducer(false, {
-  [getListSuccess]: () => true,
-  [getItemSuccess]: () => true
+  [getListRequest]: () => true,
+  [getListSuccess]: () => false,
+  [getItemRequest]: () => true,
+  [getItemSuccess]: () => false
 });
 
 export const pokemonsReducer = combineReducers({
-  pokemonsList,
-  pokemonsItem,
+  pokemons,
+  pokemon,
   error,
   isLoading
 });

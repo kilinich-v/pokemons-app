@@ -7,7 +7,7 @@ const middleware = [thunk];
 
 const store = configureStore({
   reducer: {
-    pokemons: pokemonsReducer
+    pokeStore: pokemonsReducer
   },
   middleware
 });

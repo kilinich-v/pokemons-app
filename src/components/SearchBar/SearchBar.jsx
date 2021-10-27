@@ -1,8 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+
+import { getPokemon } from '../../redux/pokemons';
+
 import styles from './styles.module.scss';
 
 const SearchBar = () => {
-  const [inputValue, setInputValue] = useState(null);
+  const dispatch = useDispatch();
+
+  const [inputValue, setInputValue] = useState('');
 
   const handleInput = event => {
     setInputValue(event.target.value);
@@ -11,7 +17,7 @@ const SearchBar = () => {
   const handleSubmit = event => {
     event.preventDefault();
 
-    // onSubmit(inputValue);
+    dispatch(getPokemon(inputValue));
   };
 
   return (
