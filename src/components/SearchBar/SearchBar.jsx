@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { getPokemon } from '../../redux/pokemons';
+import { findPokemon } from '../../redux/pokemons';
 
 import styles from './styles.module.scss';
 
@@ -17,7 +17,7 @@ const SearchBar = () => {
   const handleSubmit = event => {
     event.preventDefault();
 
-    dispatch(getPokemon(inputValue));
+    dispatch(findPokemon(inputValue));
   };
 
   return (
@@ -29,10 +29,10 @@ const SearchBar = () => {
           value={inputValue}
           autoComplete='off'
           autoFocus
-          placeholder='Search pokemon...'
+          placeholder='Type pokemon name...'
           onChange={handleInput}
         />
-        <button type='submit' className={styles.button}>
+        <button disabled={!inputValue} type='submit' className={styles.button}>
           Find
         </button>
       </form>

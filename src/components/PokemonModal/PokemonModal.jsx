@@ -12,6 +12,8 @@ const PokemonModal = () => {
 
   const pokemon = useSelector(pokemonSelectors.getPokemon);
 
+  const handleCloseModal = () => {};
+
   return (
     <>
       {isOpen && pokemon && (

@@ -9,15 +9,14 @@ import {
 } from './actions';
 
 export const getPokemons =
-  (url = null) =>
+  (limit = 20, offset = 20) =>
   async dispatch => {
     dispatch(getListRequest());
 
     try {
       const res = await axios.get(
-        url ? url : 'https://pokeapi.co/api/v2/pokemon?limit=20&offset=20'
+        `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`
       );
-      console.log(res.data);
 
       dispatch(getListSuccess(res.data));
     } catch (error) {
@@ -25,16 +24,15 @@ export const getPokemons =
     }
   };
 
-export const findPokemon = query => async dispatch => {
-  dispatch(getListRequest());
+export const findPokemon = name => async dispatch => {
+  dispatch(getItemRequest());
 
   try {
-    const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${query}`);
-    console.log(res.data);
+    const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`);
 
-    dispatch(getListSuccess(res.data));
+    dispatch(getItemSuccess(res.data));
   } catch (error) {
-    dispatch(getListError(error.message));
+    dispatch(getItemError(error.message));
   }
 };
 

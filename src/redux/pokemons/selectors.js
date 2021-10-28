@@ -1,15 +1,13 @@
-const getPokemons = state => state.pokeStore.pokemons.results;
-const getNextPage = state => state.pokeStore.pokemons.next;
-const getPrevPage = state => state.pokeStore.pokemons.previous;
+const getPokemons = state => state.pokemons.results;
+const getPokemonCount = state => state.pokemons.count;
 
-const getPokemon = state => state.pokeStore.pokemon;
+const getPokemon = state => state.pokemon;
 
-const isLoading = state => state.pokeStore.isLoading;
+const isLoading = state => state.isLoading;
 
 export default {
   getPokemons,
-  getNextPage,
-  getPrevPage,
+  getPokemonCount,
   getPokemon,
   isLoading
 };
