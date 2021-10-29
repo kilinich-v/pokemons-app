@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import PulseLoader from 'react-spinners/PulseLoader';
 
-import { pokemonSelectors, removePokemonFromStore } from '../../redux/pokemons';
+import { pokemonSelectors, removePokemon } from '../../redux/pokemons';
 
 import styles from './styles.module.scss';
 
@@ -15,7 +15,7 @@ const PokemonModal = () => {
   const pokemon = useSelector(pokemonSelectors.getPokemon);
 
   const handleCloseModal = () => {
-    dispatch(removePokemonFromStore());
+    dispatch(removePokemon());
     setOpen(false);
     setImageLoading(true);
   };
@@ -47,7 +47,7 @@ const PokemonModal = () => {
               </div>
               <div className={`${styles.blockWrapper} ${styles.stats}`}>
                 <p className={styles.blockTitle}>stats</p>
-                <ul className={styles.list}>
+                <ul className={styles.listItem}>
                   {pokemon.stats.map(({ base_stat, stat }) => (
                     <li key={stat.name}>
                       <span>{stat.name}</span> - {base_stat}
@@ -57,8 +57,8 @@ const PokemonModal = () => {
               </div>
               <div className={`${styles.blockWrapper} ${styles.moves}`}>
                 <p className={styles.blockTitle}>moves</p>
-                <ul className={styles.list}>
-                  {pokemon.moves.map(({ move }, index) => (
+                <ul className={styles.listItem}>
+                  {pokemon.moves.map(({ move }) => (
                     <li key={move.name}>{move.name}</li>
                   ))}
                 </ul>

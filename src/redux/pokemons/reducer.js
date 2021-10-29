@@ -3,10 +3,16 @@ import {
   getListRequest,
   getListSuccess,
   getListError,
+  getListFromTypesRequest,
+  getListFromTypesSuccess,
+  getListFromTypesError,
   getItemRequest,
   getItemSuccess,
   getItemError,
-  removePokemonFromStore,
+  getTypesSuccess,
+  getTypesError,
+  removePokemon,
+  removePokemonsFromTypes,
   clearErrors
 } from './actions';
 
@@ -14,21 +20,35 @@ const pokemons = createReducer([], {
   [getListSuccess]: (_, { payload }) => payload
 });
 
+const pokemonsFromTypes = createReducer(null, {
+  [getListFromTypesSuccess]: (_, { payload }) => payload.pokemon,
+  [removePokemonsFromTypes]: () => null
+});
+
 const pokemon = createReducer(null, {
   [getItemSuccess]: (_, { payload }) => payload,
-  [removePokemonFromStore]: () => null
+  [removePokemon]: () => null
+});
+
+const types = createReducer(null, {
+  [getTypesSuccess]: (_, { payload }) => payload.results
 });
 
 const error = createReducer(null, {
   [getListError]: (_, { payload }) => payload,
+  [getListFromTypesError]: (_, { payload }) => payload,
   [getItemError]: (_, { payload }) => payload,
+  [getTypesError]: (_, { payload }) => payload,
   [clearErrors]: () => null
 });
 
 const loadPokemonsList = createReducer(false, {
   [getListRequest]: () => true,
   [getListSuccess]: () => false,
-  [getListError]: () => false
+  [getListError]: () => false,
+  [getListFromTypesRequest]: () => true,
+  [getListFromTypesSuccess]: () => false,
+  [getListFromTypesError]: () => false
 });
 
 const loadPokemon = createReducer(false, {
@@ -39,7 +59,9 @@ const loadPokemon = createReducer(false, {
 
 export const pokemonsReducer = combineReducers({
   pokemons,
+  pokemonsFromTypes,
   pokemon,
+  types,
   error,
   loadPokemonsList,
   loadPokemon

@@ -1,15 +1,11 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-
-import { getPokemons } from '../redux/pokemons';
+import React from 'react';
+import { useDispatch } from 'react-redux';
 
 import SearchBar from '../components/SearchBar';
 import PokemonsList from '../components/PokemonsList';
 import PokemonModal from '../components/PokemonModal';
 
 export const PokemonsFindView = () => {
-  const dispatch = useDispatch();
-
   return (
     <div>
       <SearchBar />
