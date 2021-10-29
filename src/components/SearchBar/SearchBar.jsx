@@ -17,7 +17,7 @@ const SearchBar = () => {
   const handleSubmit = event => {
     event.preventDefault();
 
-    dispatch(findPokemon(inputValue));
+    dispatch(findPokemon(inputValue.toLowerCase()));
     setInputValue('');
   };
 
