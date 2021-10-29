@@ -1,0 +1,46 @@
+.container {
+  position: relative;
+
+  padding: 20px;
+
+  .list {
+    margin: 0;
+    padding: 0;
+  }
+
+  .viewTile {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -10px;
+
+    .item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100px;
+      height: 100px;
+      margin: 10px;
+    }
+  }
+
+  .viewList {
+    .item {
+      &:not(:last-child) {
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  .item {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #000;
+
+    cursor: pointer;
+
+    .name {
+      margin: 0;
+      padding: 0;
+    }
+  }
+}

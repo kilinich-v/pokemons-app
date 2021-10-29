@@ -7,3 +7,8 @@ export const getListError = createAction('pokemon/getListError');
 export const getItemRequest = createAction('pokemon/getItemRequest');
 export const getItemSuccess = createAction('pokemon/getItemSuccess');
 export const getItemError = createAction('pokemon/getItemError');
+
+export const removePokemonFromStore = createAction(
+  'pokemon/removePokemonFromStore'
+);
+export const clearErrors = createAction('pokemon/clearErrors');

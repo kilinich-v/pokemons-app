@@ -10,10 +10,6 @@ import PokemonModal from '../components/PokemonModal';
 export const PokemonsFindView = () => {
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getPokemons());
-  }, []);
-
   return (
     <div>
       <SearchBar />

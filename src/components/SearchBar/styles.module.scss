@@ -1,0 +1,22 @@
+.container {
+  padding: 10px;
+
+  .searchForm {
+    display: flex;
+    justify-content: center;
+  }
+
+  .input {
+    margin-right: 10px;
+    border-radius: 5px;
+    outline: none;
+    padding: 5px;
+  }
+
+  .button {
+    margin-right: 10px;
+    border-radius: 5px;
+    outline: none;
+    padding: 5px;
+  }
+}

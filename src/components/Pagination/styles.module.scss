@@ -1,0 +1,23 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+
+  li {
+    cursor: pointer;
+
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+
+  .active {
+    color: rgb(128, 235, 96);
+  }
+
+  .disabled {
+    color: rgb(143, 143, 143);
+
+    cursor: default;
+  }
+}

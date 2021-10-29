@@ -11,7 +11,7 @@ const Pagination = ({ total, perPage }) => {
   const dispatch = useDispatch();
 
   const [pageCount, setPageCount] = useState();
-  const [currentPage, setCurrentPage] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
 
   const changePage = ({ selected }) => {
     setCurrentPage(selected + 1);
@@ -22,9 +22,7 @@ const Pagination = ({ total, perPage }) => {
   }, [total, perPage]);
 
   useEffect(() => {
-    if (currentPage > 1) {
-      dispatch(getPokemons(perPage, currentPage * perPage));
-    }
+    dispatch(getPokemons(perPage, currentPage * perPage));
   }, [currentPage]);
 
   return (
@@ -34,11 +32,11 @@ const Pagination = ({ total, perPage }) => {
         nextLabel={'Next'}
         pageCount={pageCount}
         onPageChange={changePage}
-        containerClassName={'pagination'}
-        previousLinkClassName={'prevBtn'}
-        nextLinkClassName={'nextBtn'}
-        disabledClassName={'disabled'}
-        activeClassName={'active'}
+        containerClassName={styles.pagination}
+        previousLinkClassName={styles.prevBtn}
+        nextLinkClassName={styles.nextBtn}
+        disabledClassName={styles.disabled}
+        activeClassName={styles.active}
       />
     </div>
   );

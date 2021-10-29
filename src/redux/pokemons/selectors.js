@@ -3,11 +3,16 @@ const getPokemonCount = state => state.pokemons.count;
 
 const getPokemon = state => state.pokemon;
 
-const isLoading = state => state.isLoading;
+const loadPokemonsList = state => state.loadPokemonsList;
+const loadPokemon = state => state.loadPokemon;
+
+const error = state => state.error;
 
 export default {
   getPokemons,
   getPokemonCount,
   getPokemon,
-  isLoading
+  loadPokemonsList,
+  loadPokemon,
+  error
 };

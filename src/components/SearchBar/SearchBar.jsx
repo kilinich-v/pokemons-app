@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { findPokemon } from '../../redux/pokemons';
@@ -18,6 +18,7 @@ const SearchBar = () => {
     event.preventDefault();
 
     dispatch(findPokemon(inputValue));
+    setInputValue('');
   };
 
   return (

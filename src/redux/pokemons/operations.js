@@ -5,12 +5,14 @@ import {
   getListError,
   getItemRequest,
   getItemSuccess,
-  getItemError
+  getItemError,
+  clearErrors
 } from './actions';
 
 export const getPokemons =
   (limit = 20, offset = 20) =>
   async dispatch => {
+    dispatch(clearErrors());
     dispatch(getListRequest());
 
     try {
@@ -25,6 +27,7 @@ export const getPokemons =
   };
 
 export const findPokemon = name => async dispatch => {
+  dispatch(clearErrors());
   dispatch(getItemRequest());
 
   try {
@@ -37,6 +40,7 @@ export const findPokemon = name => async dispatch => {
 };
 
 export const getPokemon = url => async dispatch => {
+  dispatch(clearErrors());
   dispatch(getItemRequest());
 
   try {
