@@ -29,7 +29,9 @@ const PokemonsList = () => {
       {error && <p>{error}</p>}
       <Pagination total={pokemonsCount} perPage={20} />
       {loadPokemonsList ? (
-        <PulseLoader color={'#f6ac29'} />
+        <div className={styles.spinnerWrapper}>
+          <PulseLoader color={'#f6ac29'} />
+        </div>
       ) : (
         <ul className={`${styles.list} ${styles[currentView]}`}>
           {pokemons?.map(({ name, url }) => {

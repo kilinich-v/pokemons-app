@@ -2,7 +2,7 @@
   "name": "pokemons-app",
   "version": "0.1.0",
   "private": true,
-  homepage: ''
+  "homepage": "https://kilinich-v.github.io/pokemons-app",
   "dependencies": {
     "@reduxjs/toolkit": "^1.6.2",
     "@testing-library/jest-dom": "^5.14.1",
